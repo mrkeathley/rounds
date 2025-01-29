@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - breakable
   layers:
   - Default
   - TransparentFX
@@ -44,8 +45,14 @@ TagManager:
   - name: Ground
     uniqueID: 1378126499
     locked: 0
+  - name: Objects
+    uniqueID: 1215219651
+    locked: 0
   - name: Player
     uniqueID: 212927367
+    locked: 0
+  - name: breakable
+    uniqueID: 2840137153
     locked: 0
   m_RenderingLayers:
   - Default
