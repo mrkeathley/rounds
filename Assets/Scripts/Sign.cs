@@ -10,7 +10,6 @@ public class Sign : MonoBehaviour {
     public string dialog;
     public bool playerInRange;
 
-    void Start() {}
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.Space) && playerInRange) {

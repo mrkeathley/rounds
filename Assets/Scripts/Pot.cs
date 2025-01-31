@@ -11,11 +11,6 @@ public class Pot : MonoBehaviour {
         anim = GetComponent<Animator>();
     }
 
-
-    void Update() {
-
-    }
-
     public void Smash() {
         anim.SetBool("smash", true);
         StartCoroutine(BreakCo());

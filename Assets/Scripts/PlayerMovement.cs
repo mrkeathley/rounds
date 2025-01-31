@@ -5,7 +5,9 @@ using System.Collections.Generic;
 public enum PlayerState {
 	walk,
 	attack,
-	interact
+	interact,
+	stagger,
+	idle
 }
 
 public class PlayerMovement : MonoBehaviour {
@@ -15,6 +17,8 @@ public class PlayerMovement : MonoBehaviour {
 	private Rigidbody2D myRigidbody;
 	private Vector3 change;
 	private Animator animator;
+	public FloatValue currentHealth;
+	public Signal playerHealthSignal;
 
 	void Start() {
 		currentState = PlayerState.walk;
@@ -31,7 +35,9 @@ public class PlayerMovement : MonoBehaviour {
 		change.x = Input.GetAxisRaw("Horizontal");
 		change.y = Input.GetAxisRaw("Vertical");
 
-		if(Input.GetButtonDown("attack") && currentState != PlayerState.attack) {
+		if(Input.GetButtonDown("attack") && 
+		   currentState != PlayerState.attack && 
+		   currentState != PlayerState.stagger) {
 			StartCoroutine(AttackCo());
 		} else if (currentState == PlayerState.walk) {
 			if (change != Vector3.zero) {
@@ -45,7 +51,31 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		MoveCharacter();
+		if (currentState != PlayerState.stagger) {
+			MoveCharacter();
+		}
+	}
+	
+	public void Knockback(float knockbackTime, float damage) {
+		Debug.Log("Player Knockback");
+		if (currentState != PlayerState.stagger) {
+			
+			currentHealth.runtimeValue -= damage;
+			playerHealthSignal.Raise();
+			
+			if (currentHealth.runtimeValue > 0) {
+				currentState = PlayerState.stagger;
+				StartCoroutine(KnockbackCo(knockbackTime));
+			} else {
+				this.gameObject.SetActive(false);
+			}
+		}
+	}
+    
+	private IEnumerator KnockbackCo(float knockbackTime) {
+		yield return new WaitForSeconds(knockbackTime);
+		myRigidbody.linearVelocity = Vector2.zero;
+		currentState = PlayerState.walk;
 	}
 
 	private IEnumerator AttackCo() {
