@@ -11,12 +11,10 @@ public class FloatValue : ScriptableObject, ISerializationCallbackReceiver {
     [HideInInspector]
     public float runtimeValue;
 
-    public void OnBeforeSerialize() {
-        
-    }
+    public void OnBeforeSerialize() {}
 
     public void OnAfterDeserialize() {
-        runtimeValue = initialValue;
+	    runtimeValue = initialValue;
     }
     
 }

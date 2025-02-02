@@ -13,11 +13,15 @@ public class SignalListener : MonoBehaviour {
     }
 
     private void OnEnable() {
-        signal.RegisterListener(this);
+        if (signal != null) {
+            signal.RegisterListener(this);
+        }
     }
 
     private void OnDisable() {
-        signal.UnregisterListener(this);
+        if (signal != null) {
+            signal.UnregisterListener(this);  
+        }
     }
 
 }

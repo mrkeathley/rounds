@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5467759126573739911}
   - component: {fileID: 8422428321032931880}
   - component: {fileID: 6770500915604346200}
+  - component: {fileID: 7913326916873389846}
   m_Layer: 0
   m_Name: Sign
   m_TagString: Untagged
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1215219651
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 805182166, guid: 9101f787bd4b54852a1687e8727bd510, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -123,7 +124,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.41650915}
+  m_Offset: {x: 0, y: -0.16606331}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -133,7 +134,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.8330183}
+  m_Size: {x: 1, y: 1.3321266}
   m_EdgeRadius: 0
 --- !u!61 &6770500915604346200
 BoxCollider2D:
@@ -181,3 +182,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7913326916873389846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725563264733609529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92ac99a49cfc43b6a07a560f094cc51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 0}
+  dialogText: {fileID: 0}
+  dialog: Elliott Smells
+  playerInRange: 0
+  context: {fileID: 11400000, guid: 97dfa50d4d0d2470e82aa99c01ad13cd, type: 2}

@@ -8,7 +8,6 @@ public class Knockback : MonoBehaviour {
     public float damage;
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("Knockback");
         if(other.CompareTag("breakable")) {
             other.GetComponent<Pot>().Smash();
         } else if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player")) {
@@ -21,7 +20,6 @@ public class Knockback : MonoBehaviour {
                 if (other.gameObject.CompareTag("enemy") && other.isTrigger) {
                     other.GetComponent<Enemy>().Knockback(hit, knockbackTime, damage);
                 } else if (other.gameObject.CompareTag("Player") && other.isTrigger) {
-                    Debug.Log("Player Hit");
                     other.GetComponent<PlayerMovement>().Knockback(knockbackTime, damage);
                 }
             }

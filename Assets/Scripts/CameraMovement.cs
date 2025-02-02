@@ -11,8 +11,21 @@ public class CameraMovement : MonoBehaviour {
 	public Vector2 maxPosition;
 	public Vector2 minPosition;
 
+	public VectorValue cameraMinPosition;
+	public VectorValue cameraMaxPosition;
+	
+	void Start() {
+		minPosition += cameraMinPosition.initialValue;
+		maxPosition += cameraMaxPosition.initialValue;
+		
+		MoveCameraToPlayer();
+	}
 
 	void FixedUpdate() {
+		MoveCameraToPlayer();
+	}
+
+	void MoveCameraToPlayer() {
 		if(transform.position != target.position) {
 			Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
 
