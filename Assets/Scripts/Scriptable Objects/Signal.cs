@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 [CreateAssetMenu]
 public class Signal : ScriptableObject {
-    
     public List<SignalListener> listeners = new List<SignalListener>();
 
     public void Raise() {
@@ -20,5 +19,4 @@ public class Signal : ScriptableObject {
     public void UnregisterListener(SignalListener listener) {
         listeners.Remove(listener);
     }
-    
 }

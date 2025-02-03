@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class HeartManager : MonoBehaviour {
-    
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite halfHeart;
@@ -24,12 +23,13 @@ public class HeartManager : MonoBehaviour {
         for (int i = 0; i < heartContainers.initialValue; i++) {
             if (i <= tmpHealth - 1) {
                 hearts[i].sprite = fullHeart;
-            } else if (i >= tmpHealth) {
+            }
+            else if (i >= tmpHealth) {
                 hearts[i].sprite = emptyHeart;
-            } else {
+            }
+            else {
                 hearts[i].sprite = halfHeart;
             }
         }
     }
-    
 }

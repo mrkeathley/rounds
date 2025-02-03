@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TreasureChest : Interactable {
-
     public Item contents;
     public bool isOpened = false;
     public Signal raiseItem;
@@ -11,16 +10,22 @@ public class TreasureChest : Interactable {
     public Text dialogText;
     private Animator anim;
     public Inventory playerInventory;
+    public BooleanValue storedValue;
 
     void Start() {
         anim = GetComponent<Animator>();
+        isOpened = storedValue.runtimeValue;
+        if (isOpened) {
+            anim.SetBool("opened", true);
+        }
     }
 
     private void Update() {
         if (!Input.GetKeyDown(KeyCode.Space) || !playerInRange) return;
         if (!isOpened) {
             Open();
-        } else {
+        }
+        else {
             Finish();
         }
     }
@@ -32,11 +37,12 @@ public class TreasureChest : Interactable {
         playerInventory.currentItem = contents;
         playerInventory.AddItem(contents);
         raiseItem.Raise();
-        
+
         isOpened = true;
         context.Raise();
-        
+
         anim.SetBool("opened", true);
+        storedValue.runtimeValue = isOpened;
     }
 
     public void Finish() {
@@ -51,7 +57,7 @@ public class TreasureChest : Interactable {
     }
 
     protected new void OnTriggerExit2D(Collider2D other) {
-        if(!isOpened) {
+        if (!isOpened) {
             base.OnTriggerExit2D(other);
         }
     }

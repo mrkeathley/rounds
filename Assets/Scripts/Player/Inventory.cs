@@ -4,11 +4,11 @@ using System.Collections;
 
 [CreateAssetMenu]
 public class Inventory : ScriptableObject {
-
     public Item currentItem;
     public List<Item> items = new();
     public int numberOfKeys;
-    
+    public int coins;
+
     public void AddItem(Item item) {
         if (item.isKey) {
             numberOfKeys++;
@@ -19,5 +19,4 @@ public class Inventory : ScriptableObject {
             }
         }
     }
-
 }

@@ -5190,6 +5190,14 @@ PrefabInstance:
       propertyPath: fadeInPanel
       value: 
       objectReference: {fileID: 8414762700075986732, guid: 90ce5630ee14b4eb6b6ce12b2b70aaa4, type: 3}
+    - target: {fileID: 4030534970168445445, guid: 66ca7586f411b410cb228965f086f25a, type: 3}
+      propertyPath: cameraMaxStorage
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a135d79e30ff4fef86300f5b36d4878, type: 2}
+    - target: {fileID: 4030534970168445445, guid: 66ca7586f411b410cb228965f086f25a, type: 3}
+      propertyPath: cameraMinStorage
+      value: 
+      objectReference: {fileID: 11400000, guid: ea3d2789326ea4fd9995da55602df750, type: 2}
     - target: {fileID: 5133351936291021608, guid: 66ca7586f411b410cb228965f086f25a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.02

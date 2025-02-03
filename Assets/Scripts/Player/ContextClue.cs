@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class ContextClue : MonoBehaviour {
-
     public GameObject contextClue;
     public bool isVisible = false;
 
@@ -9,5 +8,4 @@ public class ContextClue : MonoBehaviour {
         isVisible = !isVisible;
         contextClue.SetActive(isVisible);
     }
-
 }

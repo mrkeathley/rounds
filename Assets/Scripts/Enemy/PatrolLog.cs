@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class PatrolLog : Log {
-    
     public Transform[] patrolPoints;
     public int currentPoint = 0;
     public Transform goal;
@@ -12,21 +11,24 @@ public class PatrolLog : Log {
         anim.SetBool("wakeUp", true);
         ChangeState(EnemyState.walk);
     }
-    
+
     protected override void CheckDistance() {
         float currentDistance = Vector3.Distance(target.position, transform.position);
 
-        if(currentDistance <= chaseRadius && currentDistance > attackRadius) {
-            if ((currentState == EnemyState.idle || currentState == EnemyState.walk) && currentState != EnemyState.stagger) {
+        if (currentDistance <= chaseRadius && currentDistance > attackRadius) {
+            if ((currentState == EnemyState.idle || currentState == EnemyState.walk) &&
+                currentState != EnemyState.stagger) {
                 MoveTowards(target);
             }
-        } else if (currentDistance > chaseRadius) {
+        }
+        else if (currentDistance > chaseRadius) {
             if (Vector3.Distance(transform.position, goal.position) <= roundingDistance) {
                 ChangeGoal();
-            } else {
+            }
+            else {
                 MoveTowards(goal);
             }
-        } 
+        }
     }
 
     private void MoveTowards(Transform towardsTarget) {
@@ -39,7 +41,8 @@ public class PatrolLog : Log {
         if (currentPoint == patrolPoints.Length - 1) {
             currentPoint = 0;
             goal = patrolPoints[currentPoint];
-        } else {
+        }
+        else {
             currentPoint++;
             goal = patrolPoints[currentPoint];
         }

@@ -11,13 +11,13 @@ public enum EnemyState {
 }
 
 public class Enemy : MonoBehaviour {
-
     public EnemyState currentState;
     public FloatValue maxHealth;
     private float health;
     public string enemyName;
     public int baseAttack;
     public float moveSpeed;
+    public GameObject deathEffect;
 
     protected void Start() {
         health = maxHealth.initialValue;
@@ -26,7 +26,8 @@ public class Enemy : MonoBehaviour {
     protected void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
-            this.gameObject.SetActive(false);
+            DeathEffect();
+            gameObject.SetActive(false);
         }
     }
 
@@ -37,10 +38,17 @@ public class Enemy : MonoBehaviour {
             TakeDamage(damage);
         }
     }
-    
+
     private IEnumerator KnockbackCo(Rigidbody2D myRigidbody, float knockbackTime) {
         yield return new WaitForSeconds(knockbackTime);
         myRigidbody.linearVelocity = Vector2.zero;
         currentState = EnemyState.idle;
+    }
+
+    private void DeathEffect() {
+        if (deathEffect != null) {
+            GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 1f);
+        }
     }
 }

@@ -4,10 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class SignalListener : MonoBehaviour {
-
     public Signal signal;
     public UnityEvent onSignal;
-    
+
     public void OnSignalRaised() {
         onSignal.Invoke();
     }
@@ -20,8 +19,7 @@ public class SignalListener : MonoBehaviour {
 
     private void OnDisable() {
         if (signal != null) {
-            signal.UnregisterListener(this);  
+            signal.UnregisterListener(this);
         }
     }
-
 }

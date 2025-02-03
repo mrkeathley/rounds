@@ -7,14 +7,13 @@ using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 public class Log : Enemy {
-
     public Transform target;
     public float chaseRadius;
     public float attackRadius;
     public Transform homePosition;
     protected Rigidbody2D logRigidbody;
     public Animator anim;
-    
+
     protected new void Start() {
         base.Start();
         currentState = EnemyState.idle;
@@ -30,17 +29,19 @@ public class Log : Enemy {
     protected virtual void CheckDistance() {
         float currentDistance = Vector3.Distance(target.position, transform.position);
 
-        if(currentDistance <= chaseRadius && currentDistance > attackRadius) {
-            if ((currentState == EnemyState.idle || currentState == EnemyState.walk) && currentState != EnemyState.stagger) {
+        if (currentDistance <= chaseRadius && currentDistance > attackRadius) {
+            if ((currentState == EnemyState.idle || currentState == EnemyState.walk) &&
+                currentState != EnemyState.stagger) {
                 Vector3 towards = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
                 changeAnim(towards - transform.position);
                 logRigidbody.MovePosition(towards);
                 ChangeState(EnemyState.walk);
                 anim.SetBool("wakeUp", true);
             }
-        } else if (currentDistance > chaseRadius) {
+        }
+        else if (currentDistance > chaseRadius) {
             anim.SetBool("wakeUp", false);
-        } 
+        }
     }
 
     protected void SetAnimFloat(Vector2 setVector) {
@@ -52,13 +53,16 @@ public class Log : Enemy {
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) {
             if (direction.x > 0) {
                 SetAnimFloat(Vector2.right);
-            } else if (direction.x < 0) {
+            }
+            else if (direction.x < 0) {
                 SetAnimFloat(Vector2.left);
             }
-        } else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) {
+        }
+        else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) {
             if (direction.y > 0) {
                 SetAnimFloat(Vector2.up);
-            } else if (direction.y < 0) {
+            }
+            else if (direction.y < 0) {
                 SetAnimFloat(Vector2.down);
             }
         }
