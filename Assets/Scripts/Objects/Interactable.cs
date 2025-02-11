@@ -1,35 +1,44 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Interactable : MonoBehaviour {
-    public bool contextVisible = false;
+    
+    [Header("Interactable")]
+    private bool _contextVisible = false;
     public bool showContext = true;
-    public bool playerInRange;
-    public Signal context;
+    private bool _runtimeShowContext = true;
+    public Signal contextSignal;
+    protected bool playerInRange;
 
-    public void DisableContext() {
-        showContext = false;
-        if (contextVisible) {
-            context.Raise();
-            contextVisible = false;
-        }
+    public void Start() {
+        _runtimeShowContext = showContext;
+    }
+
+    protected void DisableContext() {
+        _runtimeShowContext = false;
+        if (!_contextVisible) return;
+        contextSignal.Raise();
+        _contextVisible = false;
+    }
+
+    protected void EnableContext() {
+        if(showContext) _runtimeShowContext = true;
     }
 
     protected void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player") && !other.isTrigger) {
-            playerInRange = true;
-            if (showContext) {
-                context.Raise();
-                contextVisible = true;
-            }
-        }
+        if (!other.CompareTag("Player") || other.isTrigger) return;
+        playerInRange = true;
+        if (!_runtimeShowContext) return;
+        contextSignal.Raise();
+        _contextVisible = true;
     }
 
     protected void OnTriggerExit2D(Collider2D other) {
         if (!other.CompareTag("Player") || other.isTrigger) return;
         playerInRange = false;
-        if (showContext) {
-            context.Raise();
-            contextVisible = false;
-        }
+        if (!_runtimeShowContext) return;
+        contextSignal.Raise();
+        _contextVisible = false;
     }
 }

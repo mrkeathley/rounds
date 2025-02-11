@@ -2552,13 +2552,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_111
+      name: switch_up
       rect:
         serializedVersion: 2
         x: 0
         y: 160
-        width: 14
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2574,13 +2574,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_112
+      name: switch_down
       rect:
         serializedVersion: 2
         x: 16
         y: 160
-        width: 14
-        height: 31
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2777,7 +2777,7 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 160
-        width: 15
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2797,9 +2797,9 @@ TextureImporter:
       name: objects_122
       rect:
         serializedVersion: 2
-        x: 49
+        x: 48
         y: 160
-        width: 14
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -3746,8 +3746,6 @@ TextureImporter:
       objects_109: -547470254
       objects_11: 1643299602
       objects_110: 940553459
-      objects_111: 1652704788
-      objects_112: -15220773
       objects_113: 601595020
       objects_114: -1097456114
       objects_115: 910869774
@@ -3895,6 +3893,8 @@ TextureImporter:
       objects_97: -1317351753
       objects_98: -1453051530
       objects_99: -1336237330
+      switch_down: -15220773
+      switch_up: 1652704788
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

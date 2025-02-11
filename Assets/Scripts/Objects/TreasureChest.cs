@@ -12,7 +12,8 @@ public class TreasureChest : Interactable {
     public Inventory playerInventory;
     public BooleanValue storedValue;
 
-    void Start() {
+    public new void Start() {
+        base.Start();
         anim = GetComponent<Animator>();
         isOpened = storedValue.runtimeValue;
         if (isOpened) {
@@ -39,7 +40,7 @@ public class TreasureChest : Interactable {
         raiseItem.Raise();
 
         isOpened = true;
-        context.Raise();
+        contextSignal.Raise();
 
         anim.SetBool("opened", true);
         storedValue.runtimeValue = isOpened;

@@ -7,8 +7,13 @@ public enum DoorType {
 }
 
 public class Door : Interactable {
-    [Header("Door Variables")] public DoorType doorType;
+    private static readonly int Opened = Animator.StringToHash("opened");
+
+    [Header("Door Variables")] 
+    public DoorType doorType;
     public bool open = false;
+    
+    [Header("References")]
     public Inventory playerInventory;
     public Animator anim;
     public BoxCollider2D physicsCollider;
@@ -24,8 +29,17 @@ public class Door : Interactable {
         }
     }
 
+    public void ToggleDoor() {
+        if (open) {
+            Close();
+        }
+        else {
+            Open();
+        }
+    }
+
     public void Open() {
-        anim.SetBool("opened", true);
+        anim.SetBool(Opened, true);
         open = true;
         physicsCollider.enabled = false;
         DisableContext();
@@ -33,5 +47,8 @@ public class Door : Interactable {
 
     public void Close() {
         open = false;
+        anim.SetBool(Opened, false);
+        physicsCollider.enabled = true;
+        EnableContext();
     }
 }
