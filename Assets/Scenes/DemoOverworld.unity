@@ -7694,7 +7694,7 @@ GameObject:
   - component: {fileID: 1176270732}
   - component: {fileID: 1176270731}
   m_Layer: 0
-  m_Name: Treasure Chest
+  m_Name: Treasure Chest A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7722,6 +7722,7 @@ MonoBehaviour:
   dialogBox: {fileID: 373030459}
   dialogText: {fileID: 1081375254}
   playerInventory: {fileID: 11400000, guid: 6dd1be1a1bcb044b8a0745f80aa194ed, type: 2}
+  storedValue: {fileID: 11400000, guid: a5f0fe117d8d3421db0f9920780d2172, type: 2}
 --- !u!61 &1176270732
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28257,9 +28258,17 @@ PrefabInstance:
       propertyPath: playerhit
       value: 
       objectReference: {fileID: 11400000, guid: b3e39554f974f45969db5af19ba5b595, type: 2}
+    - target: {fileID: 1805714236789521006, guid: a72f81d373cc342be80e3230cfcb5a9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6673482305591739966, guid: a72f81d373cc342be80e3230cfcb5a9a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419083348205707036, guid: a72f81d373cc342be80e3230cfcb5a9a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

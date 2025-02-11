@@ -19,7 +19,7 @@ public class Knockback : MonoBehaviour {
                 hit.AddForce(difference, ForceMode2D.Impulse);
 
                 if (other.gameObject.CompareTag("enemy") && other.isTrigger) {
-                    other.GetComponent<Enemy>().Knockback(hit, knockbackTime, damage);
+                    other.GetComponent<Enemy.Enemy>().Knockback(hit, knockbackTime, damage);
                 }
                 else if (other.gameObject.CompareTag("Player") && other.isTrigger) {
                     other.GetComponent<PlayerMovement>().Knockback(knockbackTime, damage);
