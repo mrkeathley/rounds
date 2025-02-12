@@ -660,7 +660,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_25
+      name: rock_1
       rect:
         serializedVersion: 2
         x: 260
@@ -685,10 +685,10 @@ TextureImporter:
       name: objects_26
       rect:
         serializedVersion: 2
-        x: 272
-        y: 293
-        width: 11
-        height: 9
+        x: 276
+        y: 292
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -707,10 +707,10 @@ TextureImporter:
       name: objects_27
       rect:
         serializedVersion: 2
-        x: 294
-        y: 294
-        width: 5
-        height: 5
+        x: 293
+        y: 292
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -729,10 +729,10 @@ TextureImporter:
       name: objects_28
       rect:
         serializedVersion: 2
-        x: 310
-        y: 294
-        width: 4
-        height: 4
+        x: 308
+        y: 292
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3811,7 +3811,6 @@ TextureImporter:
       objects_22: -759291269
       objects_23: -130497211
       objects_24: 1101181517
-      objects_25: -838541622
       objects_26: -1623960214
       objects_27: 937460913
       objects_28: 1417072336
@@ -3893,6 +3892,7 @@ TextureImporter:
       objects_97: -1317351753
       objects_98: -1453051530
       objects_99: -1336237330
+      rock_1: -838541622
       switch_down: -15220773
       switch_up: 1652704788
   mipmapLimitGroupName: 

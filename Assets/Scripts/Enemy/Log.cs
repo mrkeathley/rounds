@@ -3,7 +3,7 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace Enemy {
     public class Log : Enemy {
-        private static readonly int WakeUp = Animator.StringToHash("wakeUp");
+        protected static readonly int WakeUp = Animator.StringToHash("wakeUp");
     
         protected override void CheckDistance() {
             var distanceFromPlayer = Vector3.Distance(playerTransform.position, transform.position);
